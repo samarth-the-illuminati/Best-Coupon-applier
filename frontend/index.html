@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>SmartFood AI</title>
+
+<style>
+
+body{
+font-family: Arial;
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+border:1px solid #ddd;
+padding:15px;
+margin:15px 0;
+border-radius:10px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.price{
+color:green;
+font-weight:bold;
+font-size:18px;
+}
+
+button{
+padding:8px 12px;
+margin-right:10px;
+cursor:pointer;
+}
+
+.loading{
+color:gray;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Find Cheapest Food Deals</h2>
+
+<label>Latitude:</label>
+<input id="lat" value="12.9716">
+
+<br><br>
+
+<label>Longitude:</label>
+<input id="lon" value="77.5946">
+
+<br><br>
+
+<button onclick="getLocation()">Use My Location</button>
+<button onclick="findDeals()">Find Deals</button>
+
+<h3>Results</h3>
+
+<div id="results"></div>
+
+<script>
+
+function getLocation(){
+
+if(!navigator.geolocation){
+
+alert("Geolocation is not supported by this browser.")
+return
+
+}
+
+navigator.geolocation.getCurrentPosition(
+
+function(position){
+
+let lat = position.coords.latitude
+let lon = position.coords.longitude
+
+console.log("Location detected:", lat, lon)
+
+document.getElementById("lat").value = lat
+document.getElementById("lon").value = lon
+
+/* automatically fetch deals after location */
+findDeals()
+
+},
+
+function(error){
+
+alert("Location access denied or unavailable.")
+console.log(error)
+
+}
+
+)
+
+}
+
+
+
+async function findDeals(){
+
+try{
+
+let lat = document.getElementById("lat").value
+let lon = document.getElementById("lon").value
+
+document.getElementById("results").innerHTML =
+"<p class='loading'>Finding best deals...</p>"
+
+let res = await fetch("http://127.0.0.1:5000/deals",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+lat:Number(lat),
+lon:Number(lon)
+})
+})
+
+let data = await res.json()
+
+let html = ""
+
+if(data.length === 0){
+
+document.getElementById("results").innerHTML = `
+<div class="card">
+<h3>No Restaurants Nearby</h3>
+<p>No restaurants were found within the search distance.</p>
+</div>
+`
+
+return
+}
+
+data.forEach(deal => {
+
+let items = deal.order_items
+.map(item => `${item[1]} x ${item[0]}`)
+.join(", ")
+
+html += `
+<div class="card">
+
+<h3>${deal.restaurant}</h3>
+
+<p><b>Items:</b> ${items}</p>
+
+<p class="price">₹${deal.price}</p>
+
+<p><b>Distance:</b> ${deal.distance} km</p>
+
+<p><b>Strategy:</b> ${deal.strategy}</p>
+
+</div>
+`
+
+})
+
+document.getElementById("results").innerHTML = html
+
+}catch(error){
+
+document.getElementById("results").innerHTML =
+"<p style='color:red'>Error: "+error+"</p>"
+
+console.error(error)
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+[
+  {
+    "name": "Nalpak Restaurant",
+    "delivery_fee": 30,
+    "location": [12.2923, 76.6263],
+    "menu": [
+      {"item": "Masala Dosa", "price": 85, "category": "main"},
+      {"item": "Paneer Tikka", "price": 220, "category": "side"},
+      {"item": "Filter Coffee", "price": 35, "category": "drink"},
+      {"item": "Gulab Jamun", "price": 50, "category": "addon"}
+    ]
+  },
+  {
+    "name": "Hotel RRR",
+    "delivery_fee": 45,
+    "location": [12.3117, 76.6533],
+    "menu": [
+      {"item": "Chicken Biryani", "price": 280, "category": "main"},
+      {"item": "Andhra Veg Meal", "price": 180, "category": "main"},
+      {"item": "Chilli Chicken", "price": 240, "category": "side"},
+      {"item": "Lime Juice", "price": 40, "category": "drink"}
+    ]
+  },
+  {
+    "name": "Aigiri Cafe",
+    "delivery_fee": 25,
+    "location": [12.2858, 76.6255],
+    "menu": [
+      {"item": "Thatte Idli", "price": 45, "category": "main"},
+      {"item": "Vada", "price": 30, "category": "side"},
+      {"item": "Badam Milk", "price": 55, "category": "drink"},
+      {"item": "Extra Sambar", "price": 10, "category": "addon"}
+    ]
+  },
+  {
+    "name": "Food Guru",
+    "delivery_fee": 35,
+    "location": [12.2750, 76.6420],
+    "menu": [
+      {"item": "Chicken Biriyani", "price": 129, "category": "main"},
+      {"item": "Biriyani Rice", "price": 89, "category": "main"},
+      {"item": "Kebab", "price": 120, "category": "side"}
+    ]
+  },
+  {
+    "name": "Hotel Empire",
+    "delivery_fee": 45,
+    "location": [12.3305, 76.6212],
+    "menu": [
+      {"item": "Empire Special Chicken Tikka Biryani", "price": 499, "category": "main"},
+      {"item": "Ghee Rice with Paneer Butter Masala", "price": 167, "category": "main"},
+      {"item": "Empire Special Porota", "price": 50, "category": "side"},
+      {"item": "Tender Coconut Pudding", "price": 65, "category": "addon"}
+    ]
+  },
+  {
+    "name": "Original Vinayaka Mylari",
+    "delivery_fee": 30,
+    "location": [12.3115, 76.6645],
+    "menu": [
+      {"item": "Mylari Special Masala Dosa", "price": 45, "category": "main"},
+      {"item": "Mylari Plain Dosa", "price": 42, "category": "main"},
+      {"item": "Sagu Masala Dosa", "price": 60, "category": "main"},
+      {"item": "Filter Coffee", "price": 25, "category": "drink"}
+    ]
+  },
+  {
+    "name": "Sapa Bakery",
+    "delivery_fee": 40,
+    "location": [12.3308, 76.6215],
+    "menu": [
+      {"item": "Mocha Bun", "price": 210, "category": "main"},
+      {"item": "Chilli Cheese Scones", "price": 220, "category": "side"},
+      {"item": "Almond Orange Bun", "price": 120, "category": "addon"}
+    ]
+  },
+  {
+    "name": "Hanumanthu Pulav",
+    "delivery_fee": 35,
+    "location": [12.3168, 76.6508],
+    "menu": [
+      {"item": "Mutton Pulav", "price": 280, "category": "main"},
+      {"item": "Chicken Pulav", "price": 220, "category": "main"},
+      {"item": "Mutton Liver Fry", "price": 240, "category": "side"}
+    ]
+  }
+]
